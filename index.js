@@ -21,6 +21,11 @@ server=async()=>{
     await mongo.connect();
     await scrap();
 
+    setInterval(async() => {
+        await scrapdata(); 
+        console.log("data reseted sucessfully");
+    }, 43200*1000);
+
     app.use(cors());
     app.use(express.json());
 
